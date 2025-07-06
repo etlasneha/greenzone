@@ -1,5 +1,10 @@
 import { MongoClient } from "mongodb";
 
+// Declare global types for TypeScript
+declare global {
+  var _mongoClientPromise: Promise<MongoClient> | undefined;
+}
+
 if (!process.env.MONGODB_URI) {
   console.warn("MONGODB_URI not found in environment variables. Using default localhost connection.");
 }
